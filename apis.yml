@@ -15,7 +15,7 @@ image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - API
 created: '2025-02-06'
-modified: '2025-02-06'
+modified: '2026-03-16'
 url: >-
   https://raw.githubusercontent.com/api-evangelist/springer-nature/refs/heads/main/apis.yml
 specificationVersion: '0.19'
@@ -30,12 +30,23 @@ apis:
       Our innovative APIs are designed to facilitate seamless access to this
       vast repository of knowledge, empowering developers to integrate our
       resources into their applications, platforms, and research tools. 
-    humanURL: ' https://dev.springernature.com/docs/introduction/'
+    humanURL: https://dev.springernature.com/
     tags:
-      - API
+      - Publishing
+      - Research
+      - Academic
     properties:
       - type: Documentation
-        url: ' https://dev.springernature.com/docs/introduction/'
+        url: https://dev.springernature.com/docs/introduction/
+      - type: Getting Started
+        url: https://dev.springernature.com/docs/introduction/
+common:
+  - type: Portal
+    url: https://dev.springernature.com/
+  - type: Sign Up
+    url: https://dev.springernature.com/signup
+  - type: Website
+    url: https://www.springernature.com/
 maintainers:
   - FN: Kin Lane
-    email: info@apievangelist.com
+    email: kin@apievangelist.com
