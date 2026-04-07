@@ -11,8 +11,7 @@ type: Index
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-tags:
-  - API
+tags: []
 created: '2025-02-06'
 modified: '2026-03-16'
 url: >-
@@ -31,9 +30,9 @@ apis:
       research tools.
     humanURL: https://dev.springernature.com/
     tags:
+      - Academic
       - Publishing
       - Research
-      - Academic
     properties:
       - type: Documentation
         url: https://dev.springernature.com/docs/introduction/
