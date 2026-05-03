@@ -1,0 +1,150 @@
+name: Springer Nature Vocabulary
+description: Domain vocabulary for scholarly publishing, bibliometrics, and Springer Nature API concepts
+version: '2026'
+created: '2026-05-02'
+modified: '2026-05-02'
+terms:
+  - term: DOI
+    definition: Digital Object Identifier — persistent identifier for scholarly publications enabling stable linking (e.g., 10.1007/s10994-023-06342-1)
+    related:
+      - Publication
+      - CrossRef
+      - Metadata
+    tags:
+      - Identifier
+      - Standard
+
+  - term: ISSN
+    definition: International Standard Serial Number — 8-digit identifier for serial publications (journals, magazines)
+    related:
+      - Journal
+      - eISSN
+      - Publication
+    tags:
+      - Identifier
+      - Standard
+
+  - term: ORCID
+    definition: Open Researcher and Contributor ID — persistent digital identifier for researchers enabling accurate attribution
+    related:
+      - Author
+      - Creator
+      - Attribution
+    tags:
+      - Identifier
+      - Author
+
+  - term: Open Access
+    definition: Research freely available online without subscription barriers; Springer Nature supports Gold OA, Green OA, and hybrid models
+    related:
+      - Creative Commons
+      - Full Text
+      - APC
+    tags:
+      - Publishing Policy
+      - Access
+
+  - term: Metadata
+    definition: Structured descriptive information about a publication (title, authors, abstract, DOI, subjects, dates)
+    related:
+      - Publication Record
+      - Meta API
+      - Bibliometrics
+    tags:
+      - Core
+      - Data
+
+  - term: Abstract
+    definition: A concise summary of a scholarly article or chapter's objectives, methods, results, and conclusions
+    related:
+      - Publication
+      - Full Text
+    tags:
+      - Content
+      - Metadata
+
+  - term: Article
+    definition: A peer-reviewed scholarly work published in a journal; the primary unit of Springer Nature journal publishing
+    related:
+      - Journal
+      - DOI
+      - Open Access
+    tags:
+      - Content Type
+
+  - term: Book Chapter
+    definition: A section of an edited Springer Nature book or reference work, published with its own DOI and metadata
+    related:
+      - Book
+      - ISBN
+      - DOI
+    tags:
+      - Content Type
+
+  - term: Subject Classification
+    definition: Springer Nature subject taxonomy used to classify publications by scientific discipline or field
+    related:
+      - Facet
+      - Search
+    tags:
+      - Classification
+      - Search
+
+  - term: Meta API
+    definition: Springer Nature's versioned metadata REST API providing search access to 14M+ publication records
+    related:
+      - Open Access API
+      - Metadata API
+      - Full Text API
+    tags:
+      - API
+      - Core
+
+  - term: Open Access API
+    definition: Springer Nature API providing free retrieval of metadata and links for open access publications
+    related:
+      - Meta API
+      - Open Access
+      - Full Text
+    tags:
+      - API
+      - Open Access
+
+  - term: Full Text API
+    definition: Premium Springer Nature API for text and data mining (TDM), providing full XML/HTML article content
+    related:
+      - Meta API
+      - Text Mining
+      - Premium
+    tags:
+      - API
+      - Premium
+
+  - term: Facet
+    definition: A search filter dimension (e.g., subject, content type, year) with counts, enabling drill-down refinement
+    related:
+      - Search
+      - Subject Classification
+    tags:
+      - Search
+      - Discovery
+
+  - term: Bibliometrics
+    definition: Statistical analysis of scholarly publications, citations, and impact; Springer Nature data is widely used for bibliometric studies
+    related:
+      - Metadata
+      - Citation
+      - Impact Factor
+    tags:
+      - Analytics
+      - Research
+
+  - term: Text and Data Mining (TDM)
+    definition: Automated computational analysis of scientific literature for knowledge extraction; enabled by Springer Nature Full Text API
+    related:
+      - Full Text API
+      - Open Access
+      - Research
+    tags:
+      - Advanced
+      - Research

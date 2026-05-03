@@ -1,0 +1,51 @@
+{
+  "name": "Springer Nature Publication Structure",
+  "description": "Structural documentation of Springer Nature publication metadata records",
+  "version": "2.0",
+  "structures": [
+    {
+      "name": "MetadataSearchResponse",
+      "description": "Top-level response from Springer Nature Meta API",
+      "fields": [
+        { "name": "apiMessage", "type": "string", "description": "API version and information" },
+        { "name": "query", "type": "string", "description": "The processed search query" },
+        { "name": "result", "type": "array", "description": "Pagination result metadata" },
+        { "name": "result[].total", "type": "string", "description": "Total matching records" },
+        { "name": "result[].start", "type": "string", "description": "Start record number" },
+        { "name": "result[].pageLength", "type": "string", "description": "Page size requested" },
+        { "name": "result[].recordsDisplayed", "type": "string", "description": "Records returned" },
+        { "name": "records", "type": "array", "description": "Publication records array" },
+        { "name": "facets", "type": "array", "description": "Search facet data" }
+      ]
+    },
+    {
+      "name": "PublicationRecord",
+      "description": "Individual scholarly publication metadata",
+      "fields": [
+        { "name": "identifier", "type": "string", "description": "Springer internal record ID" },
+        { "name": "title", "type": "string", "description": "Publication title", "required": true },
+        { "name": "doi", "type": "string", "description": "Digital Object Identifier" },
+        { "name": "creators", "type": "array", "description": "Author list" },
+        { "name": "creators[].creator", "type": "string", "description": "Author name (Last, First)" },
+        { "name": "creators[].ORCID", "type": "string", "description": "ORCID author ID" },
+        { "name": "publicationName", "type": "string", "description": "Journal or book series title" },
+        { "name": "issn", "type": "string", "description": "Print ISSN" },
+        { "name": "eissn", "type": "string", "description": "Electronic ISSN" },
+        { "name": "isbn", "type": "string", "description": "ISBN for books" },
+        { "name": "publisher", "type": "string", "description": "Publisher name" },
+        { "name": "publicationDate", "type": "string", "description": "ISO 8601 publication date" },
+        { "name": "onlineDate", "type": "string", "description": "Online publication date" },
+        { "name": "volume", "type": "string", "description": "Journal volume" },
+        { "name": "number", "type": "string", "description": "Journal issue number" },
+        { "name": "startingPage", "type": "string", "description": "First page" },
+        { "name": "endingPage", "type": "string", "description": "Last page" },
+        { "name": "contentType", "type": "string", "description": "Content type (Article, Book, Chapter)" },
+        { "name": "abstract", "type": "string", "description": "Publication abstract" },
+        { "name": "subjects", "type": "array", "description": "Subject classification terms" },
+        { "name": "keyword", "type": "array", "description": "Author keywords" },
+        { "name": "openAccess", "type": "boolean", "description": "Open access status" },
+        { "name": "url", "type": "array", "description": "Content access URLs" }
+      ]
+    }
+  ]
+}

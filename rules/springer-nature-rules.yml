@@ -1,0 +1,66 @@
+extends: spectral:oas
+rules:
+  springer-nature-api-key-required:
+    description: Springer Nature APIs require API key authentication
+    message: "API must define security schemes"
+    severity: error
+    given: "$.components"
+    then:
+      field: securitySchemes
+      function: truthy
+
+  springer-nature-operation-id:
+    description: All operations must have operationId
+    message: "Missing operationId at {{path}}"
+    severity: error
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: operationId
+      function: truthy
+
+  springer-nature-tags-required:
+    description: All operations must have tags
+    message: "Operation at {{path}} must have tags"
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: tags
+      function: truthy
+
+  springer-nature-summary-title-case:
+    description: Summaries must use Title Case
+    message: "Summary '{{value}}' should use Title Case"
+    severity: warn
+    given: "$.paths[*][*].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z]"
+
+  springer-nature-search-parameters:
+    description: Search endpoints must document q, s, and p parameters
+    message: "Search endpoint at {{path}} should document pagination parameters"
+    severity: info
+    given: "$.paths[*].get"
+    then:
+      field: parameters
+      function: truthy
+
+  springer-nature-rate-limit-responses:
+    description: APIs should document 429 rate limit responses
+    message: "Rate-limited endpoint should define 429 response at {{path}}"
+    severity: warn
+    given: "$.paths[*][*]"
+    then:
+      field: "responses.429"
+      function: truthy
+
+  springer-nature-server-https:
+    description: Springer Nature API servers must use HTTPS
+    message: "Server URL should use HTTPS"
+    severity: error
+    given: "$.servers[*].url"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://"

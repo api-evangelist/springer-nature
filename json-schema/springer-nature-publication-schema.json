@@ -1,0 +1,163 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.springernature.com/schemas/publication",
+  "title": "Springer Nature Publication Record",
+  "description": "Metadata record for a Springer Nature scholarly publication (article, book chapter, or book)",
+  "type": "object",
+  "properties": {
+    "identifier": {
+      "type": "string",
+      "description": "Unique record identifier"
+    },
+    "url": {
+      "type": "array",
+      "description": "Access URLs for different platforms and formats",
+      "items": {
+        "$ref": "#/definitions/ContentUrl"
+      }
+    },
+    "title": {
+      "type": "string",
+      "description": "Full title of the publication"
+    },
+    "creators": {
+      "type": "array",
+      "description": "Authors and contributors",
+      "items": {
+        "$ref": "#/definitions/Creator"
+      }
+    },
+    "publicationName": {
+      "type": "string",
+      "description": "Journal name, book series, or collection title"
+    },
+    "issn": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{3}[0-9X]$",
+      "description": "Print ISSN"
+    },
+    "eissn": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{3}[0-9X]$",
+      "description": "Electronic ISSN"
+    },
+    "isbn": {
+      "type": "string",
+      "description": "ISBN for books and book chapters"
+    },
+    "doi": {
+      "type": "string",
+      "description": "Digital Object Identifier",
+      "pattern": "^10\\.[0-9]{4,}/.+"
+    },
+    "publisher": {
+      "type": "string",
+      "description": "Publishing organization"
+    },
+    "publicationDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of publication"
+    },
+    "onlineDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of online publication"
+    },
+    "printDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of print publication"
+    },
+    "volume": {
+      "type": "string",
+      "description": "Journal volume number"
+    },
+    "number": {
+      "type": "string",
+      "description": "Journal issue number"
+    },
+    "startingPage": {
+      "type": "string",
+      "description": "First page of the article"
+    },
+    "endingPage": {
+      "type": "string",
+      "description": "Last page of the article"
+    },
+    "copyright": {
+      "type": "string",
+      "description": "Copyright statement"
+    },
+    "contentType": {
+      "type": "string",
+      "enum": ["Article", "Book", "Chapter", "ReferenceWork", "ReferenceWorkEntry", "Protocol"],
+      "description": "Type of scholarly content"
+    },
+    "abstract": {
+      "type": "string",
+      "description": "Abstract or summary of the publication"
+    },
+    "subjects": {
+      "type": "array",
+      "description": "Subject classification terms",
+      "items": {
+        "type": "string"
+      }
+    },
+    "keyword": {
+      "type": "array",
+      "description": "Author-supplied keywords",
+      "items": {
+        "type": "string"
+      }
+    },
+    "openAccess": {
+      "type": "boolean",
+      "description": "Whether the content is freely available under open access"
+    },
+    "license": {
+      "type": "string",
+      "description": "Open access license (e.g., CC BY 4.0)"
+    }
+  },
+  "definitions": {
+    "ContentUrl": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "type": "string",
+          "enum": ["html", "pdf", "epub"],
+          "description": "Content format"
+        },
+        "platform": {
+          "type": "string",
+          "description": "Delivery platform name"
+        },
+        "value": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to the content"
+        }
+      }
+    },
+    "Creator": {
+      "type": "object",
+      "properties": {
+        "creator": {
+          "type": "string",
+          "description": "Author name in Last, First format"
+        },
+        "ORCID": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]$",
+          "description": "ORCID persistent author identifier"
+        },
+        "affiliation": {
+          "type": "string",
+          "description": "Institutional affiliation"
+        }
+      }
+    }
+  }
+}

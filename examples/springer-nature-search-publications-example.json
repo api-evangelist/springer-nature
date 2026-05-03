@@ -1,0 +1,114 @@
+{
+  "example": "Search Publication Metadata",
+  "description": "Example response from searching Springer Nature Meta API for machine learning publications",
+  "request": {
+    "method": "GET",
+    "url": "https://api.springernature.com/meta/v2/json?q=title%3Amachine+learning&p=2&s=1",
+    "headers": {
+      "X-ApiKey": "your-api-key-here"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "apiMessage": "The API has been throttled for exceeding the limit: 10 calls per second",
+      "query": "title:machine learning",
+      "apiKey": "your-api-key-here",
+      "result": [
+        {
+          "total": "48213",
+          "start": "1",
+          "pageLength": "2",
+          "recordsDisplayed": "2"
+        }
+      ],
+      "records": [
+        {
+          "identifier": "doi:10.1007/s10994-023-06342-1",
+          "url": [
+            {
+              "format": "html",
+              "platform": "SpringerLink",
+              "value": "https://link.springer.com/article/10.1007/s10994-023-06342-1"
+            }
+          ],
+          "title": "Machine Learning for Predictive Analytics in Healthcare",
+          "creators": [
+            {
+              "creator": "Johnson, Emily R.",
+              "ORCID": "0000-0002-1234-5678"
+            },
+            {
+              "creator": "Chen, Wei",
+              "ORCID": "0000-0001-9876-5432"
+            }
+          ],
+          "publicationName": "Machine Learning",
+          "issn": "0885-6125",
+          "eissn": "1573-0565",
+          "doi": "10.1007/s10994-023-06342-1",
+          "publisher": "Springer US",
+          "publicationDate": "2023-09-15",
+          "onlineDate": "2023-09-15",
+          "volume": "112",
+          "number": "9",
+          "startingPage": "3401",
+          "endingPage": "3435",
+          "copyright": "The Author(s) 2023",
+          "contentType": "Article",
+          "abstract": "This paper presents a comprehensive survey of machine learning techniques applied to predictive analytics in healthcare settings...",
+          "subjects": ["Artificial Intelligence", "Computer Science", "Health Informatics"],
+          "keyword": ["machine learning", "healthcare", "predictive analytics", "clinical decision support"],
+          "openAccess": true
+        },
+        {
+          "identifier": "doi:10.1007/978-3-031-12345-7_3",
+          "url": [
+            {
+              "format": "html",
+              "platform": "SpringerLink",
+              "value": "https://link.springer.com/chapter/10.1007/978-3-031-12345-7_3"
+            }
+          ],
+          "title": "Deep Learning and Machine Learning: A Comparative Study",
+          "creators": [
+            {
+              "creator": "Kumar, Raj"
+            }
+          ],
+          "publicationName": "Advances in Intelligent Systems",
+          "isbn": "978-3-031-12345-7",
+          "doi": "10.1007/978-3-031-12345-7_3",
+          "publisher": "Springer International Publishing",
+          "publicationDate": "2023-05-20",
+          "onlineDate": "2023-05-20",
+          "contentType": "Chapter",
+          "abstract": "A comprehensive comparison of deep learning and classical machine learning approaches...",
+          "subjects": ["Computer Science", "Artificial Intelligence"],
+          "keyword": ["deep learning", "machine learning", "neural networks"],
+          "openAccess": false
+        }
+      ],
+      "facets": [
+        {
+          "name": "subject",
+          "values": [
+            { "value": "Computer Science", "count": "18432" },
+            { "value": "Artificial Intelligence", "count": "12891" },
+            { "value": "Statistics", "count": "8234" }
+          ]
+        },
+        {
+          "name": "type",
+          "values": [
+            { "value": "Article", "count": "31421" },
+            { "value": "Chapter", "count": "16792" }
+          ]
+        }
+      ]
+    }
+  }
+}
