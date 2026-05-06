@@ -4,101 +4,37 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Springer Nature
 providerId: springer-nature
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
   - Academic Publishing
   - Open Access
   - Research
   - Scholarly Content
-  - Scientific Publishing
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Springer Nature API surface. Captures per-tier
-  quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to
-  be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+description: Springer Nature documents that its Basic developer API has a daily quota and that a Premium API tier provides higher rate limits, but the concrete numeric thresholds are gated behind the dev.springernature.com portal sign-up and a JavaScript-rendered subscription page. Numbers are not scrapeable from the public docs landing.
+sources:
+  - https://dev.springernature.com/
+  - https://dev.springernature.com/docs
+notes: Per-day request quota and Premium-tier numeric limits are not on a publicly fetchable page. Sign in to the developer portal or contact api@springernature.com for the current values.
 responseCodes:
   throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
 limits:
-  - tier: free
-    name: Free Tier Default
+  - name: Basic API Daily Quota
     scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Springer Nature Meta API
-      - Springer Nature Open Access API
-      - Springer Nature Metadata API
-      - Springer Nature Full Text API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Springer Nature Meta API
-      - Springer Nature Open Access API
-      - Springer Nature Metadata API
-      - Springer Nature Full Text API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Springer Nature Meta API
-      - Springer Nature Open Access API
-      - Springer Nature Metadata API
-      - Springer Nature Full Text API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Springer Nature Meta API
-      - Springer Nature Open Access API
-      - Springer Nature Metadata API
-      - Springer Nature Full Text API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Springer Nature Meta API
-      - Springer Nature Open Access API
-      - Springer Nature Metadata API
-      - Springer Nature Full Text API
+    metric: requests_per_day
+    limit: see dev.springernature.com after sign-up
+    notes: A daily quota is enforced per registered API key on the Basic tier; the exact number is shown in the developer portal after account creation.
+  - name: Premium API Quota
+    scope: api-key/contract
+    metric: varies
+    limit: higher than Basic; per Premium contract
+    notes: Premium API documented as offering higher rate limits and advanced features; specifics are not published openly.
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
   - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+    description: Daily quotas on the Basic tier reset on a 24-hour rolling or calendar-day window; consult the portal for the exact reset semantics.
+  - name: Upgrade Path
+    description: When Basic quota is insufficient, Springer Nature directs users to the Premium API tier rather than offering published per-call overage pricing.
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+  - name: Springer Nature
+    url: https://dev.springernature.com/
