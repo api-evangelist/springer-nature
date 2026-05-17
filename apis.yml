@@ -39,7 +39,7 @@ apis:
     properties:
       - type: Documentation
         url: https://dev.springernature.com/docs/api-endpoints/meta-api/
-      - type: Getting Started
+      - type: GettingStarted
         url: https://dev.springernature.com/docs/introduction/
       - type: OpenAPI
         url: openapi/springer-nature-meta-openapi.yml
@@ -94,17 +94,17 @@ apis:
 common:
   - type: Portal
     url: https://dev.springernature.com/
-  - type: Sign Up
+  - type: SignUp
     url: https://dev.springernature.com/signup
   - type: Website
     url: https://www.springernature.com/
   - type: API Playground
     url: https://dev.springernature.com/docs/live-documentation/
-  - type: Rate Limits
+  - type: RateLimits
     url: https://dev.springernature.com/docs/rate-limit-details/rate-limits/
   - type: Terms and Conditions
     url: https://dev.springernature.com/terms-conditions/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/springernature
   - type: Blog
     url: https://www.springernature.com/gp/researchers/the-source
