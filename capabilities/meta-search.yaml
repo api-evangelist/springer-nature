@@ -1,0 +1,150 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Springer Nature Meta API — Search
+  description: 'Springer Nature Meta API — Search. 2 operations. Lead operation: Search Publication Metadata. Self-contained
+    Naftiko capability covering one Springer Nature business surface.'
+  tags:
+  - Springer Nature
+  - Search
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SPRINGER_NATURE_API_KEY: SPRINGER_NATURE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: meta-search
+    baseUri: https://api.springernature.com/meta/v2
+    description: Springer Nature Meta API — Search business capability. Self-contained, no shared references.
+    resources:
+    - name: json
+      path: /json
+      operations:
+      - name: searchmetadata
+        method: GET
+        description: Search Publication Metadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+          description: 'Free-text search query. Supports field qualifiers: title:, doi:, author:, issn:, isbn:, journal:,
+            subject:, onlinedatefrom:, onlinedateto:'
+        - name: s
+          in: query
+          type: integer
+          description: Start record number for pagination (1-based)
+        - name: p
+          in: query
+          type: integer
+          description: Number of results per page (max 100)
+        - name: api_key
+          in: query
+          type: string
+          description: API key (alternative to header-based auth)
+    - name: pam
+      path: /pam
+      operations:
+      - name: searchmetadatapam
+        method: GET
+        description: Search Metadata (PAM Format)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+        - name: s
+          in: query
+          type: integer
+        - name: p
+          in: query
+          type: integer
+    authentication:
+      type: apikey
+      key: X-ApiKey
+      value: '{{env.SPRINGER_NATURE_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: meta-search-rest
+    port: 8080
+    description: REST adapter for Springer Nature Meta API — Search. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/json
+      name: json
+      description: REST surface for json.
+      operations:
+      - method: GET
+        name: searchmetadata
+        description: Search Publication Metadata
+        call: meta-search.searchmetadata
+        with:
+          q: rest.q
+          s: rest.s
+          p: rest.p
+          api_key: rest.api_key
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/pam
+      name: pam
+      description: REST surface for pam.
+      operations:
+      - method: GET
+        name: searchmetadatapam
+        description: Search Metadata (PAM Format)
+        call: meta-search.searchmetadatapam
+        with:
+          q: rest.q
+          s: rest.s
+          p: rest.p
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: meta-search-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Springer Nature Meta API — Search. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: search-publication-metadata
+      description: Search Publication Metadata
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: meta-search.searchmetadata
+      with:
+        q: tools.q
+        s: tools.s
+        p: tools.p
+        api_key: tools.api_key
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-metadata-pam-format
+      description: Search Metadata (PAM Format)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: meta-search.searchmetadatapam
+      with:
+        q: tools.q
+        s: tools.s
+        p: tools.p
+      outputParameters:
+      - type: object
+        mapping: $.
