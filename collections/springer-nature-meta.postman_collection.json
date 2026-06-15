@@ -1,0 +1,388 @@
+{
+  "item": [
+    {
+      "id": "a85e090c-6b58-4cb9-8a03-06ae0d7ebaa7",
+      "name": "Search",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d82540be-d00b-4211-8f89-85b3b09f59e5",
+          "name": "Search Publication Metadata",
+          "request": {
+            "name": "Search Publication Metadata",
+            "description": {
+              "content": "Searches and retrieves metadata for Springer Nature publications. Returns paginated results with rich metadata including abstracts, authors, affiliations, DOIs, URLs, journal info, and subject classifications.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Free-text search query. Supports field qualifiers: title:, doi:, author:, issn:, isbn:, journal:, subject:, onlinedatefrom:, onlinedateto:"
+                },
+                {
+                  "disabled": false,
+                  "key": "s",
+                  "value": "1",
+                  "description": "Start record number for pagination (1-based)"
+                },
+                {
+                  "disabled": false,
+                  "key": "p",
+                  "value": "10",
+                  "description": "Number of results per page (max 100)"
+                },
+                {
+                  "disabled": false,
+                  "key": "api_key",
+                  "value": "<string>",
+                  "description": "API key (alternative to header-based auth)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "39e50c56-4829-4821-a2d2-5b7d3f048a29",
+              "name": "Metadata search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "s",
+                      "value": "1"
+                    },
+                    {
+                      "key": "p",
+                      "value": "10"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"apiMessage\": \"string\",\n  \"query\": \"string\",\n  \"apiKey\": \"string\",\n  \"result\": [\n    {\n      \"total\": \"string\",\n      \"start\": \"string\",\n      \"pageLength\": \"string\",\n      \"recordsDisplayed\": \"string\"\n    },\n    {\n      \"total\": \"string\",\n      \"start\": \"string\",\n      \"pageLength\": \"string\",\n      \"recordsDisplayed\": \"string\"\n    }\n  ],\n  \"records\": [\n    {\n      \"identifier\": \"string\",\n      \"url\": [\n        {\n          \"format\": \"string\",\n          \"platform\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"format\": \"string\",\n          \"platform\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"title\": \"string\",\n      \"creators\": [\n        {\n          \"creator\": \"string\",\n          \"ORCID\": \"string\"\n        },\n        {\n          \"creator\": \"string\",\n          \"ORCID\": \"string\"\n        }\n      ],\n      \"publicationName\": \"string\",\n      \"issn\": \"string\",\n      \"eissn\": \"string\",\n      \"isbn\": \"string\",\n      \"doi\": \"string\",\n      \"publisher\": \"string\",\n      \"publicationDate\": \"2017-11-23\",\n      \"onlineDate\": \"1979-05-05\",\n      \"printDate\": \"2025-09-05\",\n      \"volume\": \"string\",\n      \"number\": \"string\",\n      \"startingPage\": \"string\",\n      \"endingPage\": \"string\",\n      \"copyright\": \"string\",\n      \"contentType\": \"string\",\n      \"abstract\": \"string\",\n      \"subjects\": [\n        \"string\",\n        \"string\"\n      ],\n      \"keyword\": [\n        \"string\",\n        \"string\"\n      ],\n      \"openAccess\": false\n    },\n    {\n      \"identifier\": \"string\",\n      \"url\": [\n        {\n          \"format\": \"string\",\n          \"platform\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"format\": \"string\",\n          \"platform\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"title\": \"string\",\n      \"creators\": [\n        {\n          \"creator\": \"string\",\n          \"ORCID\": \"string\"\n        },\n        {\n          \"creator\": \"string\",\n          \"ORCID\": \"string\"\n        }\n      ],\n      \"publicationName\": \"string\",\n      \"issn\": \"string\",\n      \"eissn\": \"string\",\n      \"isbn\": \"string\",\n      \"doi\": \"string\",\n      \"publisher\": \"string\",\n      \"publicationDate\": \"1963-10-12\",\n      \"onlineDate\": \"1995-11-06\",\n      \"printDate\": \"1954-07-02\",\n      \"volume\": \"string\",\n      \"number\": \"string\",\n      \"startingPage\": \"string\",\n      \"endingPage\": \"string\",\n      \"copyright\": \"string\",\n      \"contentType\": \"string\",\n      \"abstract\": \"string\",\n      \"subjects\": [\n        \"string\",\n        \"string\"\n      ],\n      \"keyword\": [\n        \"string\",\n        \"string\"\n      ],\n      \"openAccess\": true\n    }\n  ],\n  \"facets\": [\n    {\n      \"name\": \"string\",\n      \"values\": [\n        {\n          \"value\": \"string\",\n          \"count\": \"string\"\n        },\n        {\n          \"value\": \"string\",\n          \"count\": \"string\"\n        }\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"values\": [\n        {\n          \"value\": \"string\",\n          \"count\": \"string\"\n        },\n        {\n          \"value\": \"string\",\n          \"count\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "784ece0f-0435-4d42-835d-47914d0d657a",
+              "name": "Unauthorized - invalid or missing API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "s",
+                      "value": "1"
+                    },
+                    {
+                      "key": "p",
+                      "value": "10"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "83b9b10b-5c1c-4007-85d3-045894fc77b2",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "s",
+                      "value": "1"
+                    },
+                    {
+                      "key": "p",
+                      "value": "10"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f26f66e6-75b0-4e36-8128-4a3d4a939333",
+          "name": "Search Metadata (PAM Format)",
+          "request": {
+            "name": "Search Metadata (PAM Format)",
+            "description": {
+              "content": "Returns publication metadata in PAM (Publishing Requirements for Industry Standard Metadata) format",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pam"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "s",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "p",
+                  "value": "10"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1fc7a0ff-90f6-4feb-903f-3fa0bc88e227",
+              "name": "PAM format metadata results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pam"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "s",
+                      "value": "1"
+                    },
+                    {
+                      "key": "p",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.springernature.com/meta/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-ApiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ccec1c15-9a43-4d40-9d63-5d1a6a7c8e2a",
+    "name": "Springer Nature Meta API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Springer Nature Meta API (versioned metadata) provides comprehensive access to metadata for over 14 million scholarly documents including journal articles, book chapters, and conference papers. Supports search by keyword, author, journal, ISSN, ISBN, DOI, subject, and date range. Returns rich metadata including abstracts, author affiliations, funding, subject classification, and content links. Requires a free API key from dev.springernature.com.\n\nContact Support:\n Name: Springer Nature Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

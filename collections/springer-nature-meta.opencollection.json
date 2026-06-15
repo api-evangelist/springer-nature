@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Springer Nature Meta API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-ApiKey",
+      "value": "{{X-ApiKey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Publication Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.springernature.com/meta/v2/json",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search query. Supports field qualifiers: title:, doi:, author:, issn:, isbn:, journal:, subject:, onlinedatefrom:, onlinedateto:"
+              },
+              {
+                "name": "s",
+                "value": "",
+                "type": "query",
+                "description": "Start record number for pagination (1-based)"
+              },
+              {
+                "name": "p",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page (max 100)"
+              },
+              {
+                "name": "api_key",
+                "value": "",
+                "type": "query",
+                "description": "API key (alternative to header-based auth)"
+              }
+            ]
+          },
+          "docs": "Searches and retrieves metadata for Springer Nature publications. Returns paginated results with rich metadata including abstracts, authors, affiliations, DOIs, URLs, journal info, and subject classifications."
+        },
+        {
+          "info": {
+            "name": "Search Metadata (PAM Format)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.springernature.com/meta/v2/pam",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "s",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "p",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns publication metadata in PAM (Publishing Requirements for Industry Standard Metadata) format"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

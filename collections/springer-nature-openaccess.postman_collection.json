@@ -1,0 +1,387 @@
+{
+  "item": [
+    {
+      "id": "bc20291f-70a0-4ec4-878e-934b4ca8f306",
+      "name": "Open Access",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3bf66d0b-38f5-4503-93bc-a182088bc94a",
+          "name": "Search Open Access Content",
+          "request": {
+            "name": "Search Open Access Content",
+            "description": {
+              "content": "Searches open access publications and returns metadata with links to full-text content. Results include articles and chapters that are freely accessible without subscription.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Search query supporting field qualifiers: doi:, title:, author:, journal:, issn:, isbn:, subject:, keyword:, onlinedatefrom:, onlinedateto:"
+                },
+                {
+                  "disabled": false,
+                  "key": "s",
+                  "value": "1",
+                  "description": "Start record for pagination (1-based)"
+                },
+                {
+                  "disabled": false,
+                  "key": "p",
+                  "value": "10",
+                  "description": "Number of results per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "api_key",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e76e8351-ca5c-4da5-9584-4fa8ecbe7202",
+              "name": "Open access search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "s",
+                      "value": "1"
+                    },
+                    {
+                      "key": "p",
+                      "value": "10"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"apiMessage\": \"string\",\n  \"query\": \"string\",\n  \"result\": [\n    {\n      \"total\": \"string\",\n      \"start\": \"string\",\n      \"pageLength\": \"string\",\n      \"recordsDisplayed\": \"string\"\n    },\n    {\n      \"total\": \"string\",\n      \"start\": \"string\",\n      \"pageLength\": \"string\",\n      \"recordsDisplayed\": \"string\"\n    }\n  ],\n  \"records\": [\n    {\n      \"identifier\": \"string\",\n      \"url\": [\n        {\n          \"format\": \"string\",\n          \"platform\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"format\": \"string\",\n          \"platform\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"title\": \"string\",\n      \"creators\": [\n        {\n          \"creator\": \"string\",\n          \"ORCID\": \"string\"\n        },\n        {\n          \"creator\": \"string\",\n          \"ORCID\": \"string\"\n        }\n      ],\n      \"publicationName\": \"string\",\n      \"doi\": \"string\",\n      \"publisher\": \"string\",\n      \"publicationDate\": \"2000-09-24\",\n      \"contentType\": \"string\",\n      \"abstract\": \"string\",\n      \"openAccess\": true,\n      \"fullTextUrl\": \"https://JeSPbQngVXEzMkgoIOerNNWmwWy.zbGyS,MbpXnYDjZp5flBSbIsrtTPuSXHCpe.9xB95gdMomHNdz-0roR+FIPo9kjd0vcCt\",\n      \"pdfUrl\": \"http://xsqfljbspzwDhyfUPQORpl.rjbm.2ioSOt.16xJBW9bSnB70,hKGyfK-kuvy\",\n      \"license\": \"string\",\n      \"subjects\": [\n        \"string\",\n        \"string\"\n      ],\n      \"keyword\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"identifier\": \"string\",\n      \"url\": [\n        {\n          \"format\": \"string\",\n          \"platform\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"format\": \"string\",\n          \"platform\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"title\": \"string\",\n      \"creators\": [\n        {\n          \"creator\": \"string\",\n          \"ORCID\": \"string\"\n        },\n        {\n          \"creator\": \"string\",\n          \"ORCID\": \"string\"\n        }\n      ],\n      \"publicationName\": \"string\",\n      \"doi\": \"string\",\n      \"publisher\": \"string\",\n      \"publicationDate\": \"1950-01-16\",\n      \"contentType\": \"string\",\n      \"abstract\": \"string\",\n      \"openAccess\": true,\n      \"fullTextUrl\": \"http://DzUfbllpTfSGOCK.khaoftjJ0upJ89.F52du,Ch\",\n      \"pdfUrl\": \"http://TmISAsiuLUbUuy.rlrwOQ3os7eLLkx-brN5vHOFGn60ucSqA3aXM0wEByK,tzp9PQ\",\n      \"license\": \"string\",\n      \"subjects\": [\n        \"string\",\n        \"string\"\n      ],\n      \"keyword\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d2455f7-eaf4-4605-b552-cb1a716bcfb6",
+              "name": "Unauthorized - invalid or missing API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "s",
+                      "value": "1"
+                    },
+                    {
+                      "key": "p",
+                      "value": "10"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3ee78b80-4db9-49d9-a277-834fc73b54b1",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "s",
+                      "value": "1"
+                    },
+                    {
+                      "key": "p",
+                      "value": "10"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d6fb7091-8008-4445-8404-f00fcc3eff91",
+          "name": "Search Open Access Content (JATS Format)",
+          "request": {
+            "name": "Search Open Access Content (JATS Format)",
+            "description": {
+              "content": "Returns open access publication metadata in JATS XML format",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "s",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "p",
+                  "value": "10"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "23166b60-5855-4ef1-a5a2-9be6c8433bd3",
+              "name": "JATS format results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "s",
+                      "value": "1"
+                    },
+                    {
+                      "key": "p",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ApiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.springernature.com/openaccess",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-ApiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "49daf3d8-00f8-4f95-82b0-e2d9c7fbf37e",
+    "name": "Springer Nature Open Access API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Springer Nature Open Access API provides free access to open access research articles and book chapters published by Springer Nature. It enables retrieval of metadata and full-text content for open access publications across all disciplines. Requires a free API key from dev.springernature.com.\n\nContact Support:\n Name: Springer Nature Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

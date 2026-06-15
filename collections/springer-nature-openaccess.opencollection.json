@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Springer Nature Open Access API",
+    "version": "1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-ApiKey",
+      "value": "{{X-ApiKey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Open Access",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Open Access Content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.springernature.com/openaccess/json",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Search query supporting field qualifiers: doi:, title:, author:, journal:, issn:, isbn:, subject:, keyword:, onlinedatefrom:, onlinedateto:"
+              },
+              {
+                "name": "s",
+                "value": "",
+                "type": "query",
+                "description": "Start record for pagination (1-based)"
+              },
+              {
+                "name": "p",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page"
+              },
+              {
+                "name": "api_key",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Searches open access publications and returns metadata with links to full-text content. Results include articles and chapters that are freely accessible without subscription."
+        },
+        {
+          "info": {
+            "name": "Search Open Access Content (JATS Format)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.springernature.com/openaccess/jats",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "s",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "p",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns open access publication metadata in JATS XML format"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
