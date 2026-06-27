@@ -92,7 +92,7 @@ common:
     url: https://www.linkedin.com/company/springernature
   - type: Portal
     url: https://dev.springernature.com/
-  - type: SignUp
+  - type: Signup
     url: https://dev.springernature.com/signup
   - type: Website
     url: https://www.springernature.com/
