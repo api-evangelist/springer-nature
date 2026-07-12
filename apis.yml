@@ -88,6 +88,10 @@ apis:
       - type: Documentation
         url: https://dev.springernature.com/docs/api-endpoints/fulltext-api/
 common:
+  - type: DomainSecurity
+    url: security/springer-nature-domain-security.yml
+  - type: Authentication
+    url: authentication/springer-nature-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/springernature
   - type: Portal

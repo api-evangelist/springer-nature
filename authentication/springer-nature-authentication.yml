@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/springer-nature-meta-openapi.yml, openapi/springer-nature-openaccess-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: apiKey
+  type: apiKey
+  in: header
+  parameter: X-ApiKey
+  sources:
+  - openapi/springer-nature-meta-openapi.yml
+  - openapi/springer-nature-openaccess-openapi.yml
