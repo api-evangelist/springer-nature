@@ -1,13 +1,7 @@
 openapi: 3.0.3
 info:
-  title: Springer Nature Meta API
-  description: >-
-    The Springer Nature Meta API (versioned metadata) provides comprehensive
-    access to metadata for over 14 million scholarly documents including journal
-    articles, book chapters, and conference papers. Supports search by keyword,
-    author, journal, ISSN, ISBN, DOI, subject, and date range. Returns rich
-    metadata including abstracts, author affiliations, funding, subject classification,
-    and content links. Requires a free API key from dev.springernature.com.
+  title: Springer Nature Meta Open Access Search API
+  description: The Springer Nature Meta API (versioned metadata) provides comprehensive access to metadata for over 14 million scholarly documents including journal articles, book chapters, and conference papers. Supports search by keyword, author, journal, ISSN, ISBN, DOI, subject, and date range. Returns rich metadata including abstracts, author affiliations, funding, subject classification, and content links. Requires a free API key from dev.springernature.com.
   version: '2'
   contact:
     name: Springer Nature Developer Support
@@ -16,53 +10,50 @@ info:
     name: Springer Nature API Terms
     url: https://dev.springernature.com/terms-conditions/
 servers:
-  - url: https://api.springernature.com/meta/v2
-    description: Springer Nature Meta API v2
+- url: https://api.springernature.com/meta/v2
+  description: Springer Nature Meta API v2
 security:
-  - apiKey: []
+- apiKey: []
+tags:
+- name: Search
 paths:
   /json:
     get:
       operationId: searchMetadata
       summary: Search Publication Metadata
-      description: >-
-        Searches and retrieves metadata for Springer Nature publications. Returns
-        paginated results with rich metadata including abstracts, authors, affiliations,
-        DOIs, URLs, journal info, and subject classifications.
+      description: Searches and retrieves metadata for Springer Nature publications. Returns paginated results with rich metadata including abstracts, authors, affiliations, DOIs, URLs, journal info, and subject classifications.
       tags:
-        - Search
+      - Search
       parameters:
-        - name: q
-          in: query
-          required: false
-          schema:
-            type: string
-          description: >-
-            Free-text search query. Supports field qualifiers: title:, doi:,
-            author:, issn:, isbn:, journal:, subject:, onlinedatefrom:, onlinedateto:
-        - name: s
-          in: query
-          required: false
-          schema:
-            type: integer
-            minimum: 1
-            default: 1
-          description: Start record number for pagination (1-based)
-        - name: p
-          in: query
-          required: false
-          schema:
-            type: integer
-            minimum: 1
-            maximum: 100
-            default: 10
-          description: Number of results per page (max 100)
-        - name: api_key
-          in: query
-          required: false
-          schema:
-            type: string
-          description: API key (alternative to header-based auth)
+      - name: q
+        in: query
+        required: false
+        schema:
+          type: string
+        description: 'Free-text search query. Supports field qualifiers: title:, doi:, author:, issn:, isbn:, journal:, subject:, onlinedatefrom:, onlinedateto:'
+      - name: s
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          default: 1
+        description: Start record number for pagination (1-based)
+      - name: p
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 10
+        description: Number of results per page (max 100)
+      - name: api_key
+        in: query
+        required: false
+        schema:
+          type: string
+        description: API key (alternative to header-based auth)
       responses:
         '200':
           description: Metadata search results
@@ -80,23 +71,23 @@ paths:
       summary: Search Metadata (PAM Format)
       description: Returns publication metadata in PAM (Publishing Requirements for Industry Standard Metadata) format
       tags:
-        - Search
+      - Search
       parameters:
-        - name: q
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: s
-          in: query
-          schema:
-            type: integer
-            default: 1
-        - name: p
-          in: query
-          schema:
-            type: integer
-            default: 10
+      - name: q
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: s
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - name: p
+        in: query
+        schema:
+          type: integer
+          default: 10
       responses:
         '200':
           description: PAM format metadata results
@@ -105,12 +96,31 @@ paths:
               schema:
                 type: object
 components:
-  securitySchemes:
-    apiKey:
-      type: apiKey
-      in: header
-      name: X-ApiKey
   schemas:
+    Creator:
+      type: object
+      properties:
+        creator:
+          type: string
+          description: Author name (Last, First format)
+        ORCID:
+          type: string
+          description: Author ORCID identifier
+    Facet:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Facet field name (subject, type, year, journal, etc.)
+        values:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+              count:
+                type: string
     MetadataSearchResponse:
       type: object
       properties:
@@ -219,29 +229,8 @@ components:
         openAccess:
           type: boolean
           description: Whether the content is open access
-    Creator:
-      type: object
-      properties:
-        creator:
-          type: string
-          description: Author name (Last, First format)
-        ORCID:
-          type: string
-          description: Author ORCID identifier
-    Facet:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Facet field name (subject, type, year, journal, etc.)
-        values:
-          type: array
-          items:
-            type: object
-            properties:
-              value:
-                type: string
-              count:
-                type: string
-tags:
-  - name: Search
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-ApiKey

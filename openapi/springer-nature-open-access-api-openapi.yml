@@ -1,12 +1,8 @@
 openapi: 3.0.3
 info:
-  title: Springer Nature Open Access API
-  description: >-
-    The Springer Nature Open Access API provides free access to open access
-    research articles and book chapters published by Springer Nature. It enables
-    retrieval of metadata and full-text content for open access publications
-    across all disciplines. Requires a free API key from dev.springernature.com.
-  version: '1'
+  title: Springer Nature Meta Open Access API
+  description: The Springer Nature Meta API (versioned metadata) provides comprehensive access to metadata for over 14 million scholarly documents including journal articles, book chapters, and conference papers. Supports search by keyword, author, journal, ISSN, ISBN, DOI, subject, and date range. Returns rich metadata including abstracts, author affiliations, funding, subject classification, and content links. Requires a free API key from dev.springernature.com.
+  version: '2'
   contact:
     name: Springer Nature Developer Support
     url: https://dev.springernature.com/
@@ -14,52 +10,49 @@ info:
     name: Springer Nature API Terms
     url: https://dev.springernature.com/terms-conditions/
 servers:
-  - url: https://api.springernature.com/openaccess
-    description: Springer Nature Open Access API
+- url: https://api.springernature.com/meta/v2
+  description: Springer Nature Meta API v2
 security:
-  - apiKey: []
+- apiKey: []
+tags:
+- name: Open Access
 paths:
   /json:
     get:
       operationId: searchOpenAccess
       summary: Search Open Access Content
-      description: >-
-        Searches open access publications and returns metadata with links to
-        full-text content. Results include articles and chapters that are freely
-        accessible without subscription.
+      description: Searches open access publications and returns metadata with links to full-text content. Results include articles and chapters that are freely accessible without subscription.
       tags:
-        - Open Access
+      - Open Access
       parameters:
-        - name: q
-          in: query
-          required: false
-          schema:
-            type: string
-          description: >-
-            Search query supporting field qualifiers: doi:, title:, author:,
-            journal:, issn:, isbn:, subject:, keyword:, onlinedatefrom:, onlinedateto:
-        - name: s
-          in: query
-          required: false
-          schema:
-            type: integer
-            minimum: 1
-            default: 1
-          description: Start record for pagination (1-based)
-        - name: p
-          in: query
-          required: false
-          schema:
-            type: integer
-            minimum: 1
-            maximum: 100
-            default: 10
-          description: Number of results per page
-        - name: api_key
-          in: query
-          required: false
-          schema:
-            type: string
+      - name: q
+        in: query
+        required: false
+        schema:
+          type: string
+        description: 'Search query supporting field qualifiers: doi:, title:, author:, journal:, issn:, isbn:, subject:, keyword:, onlinedatefrom:, onlinedateto:'
+      - name: s
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          default: 1
+        description: Start record for pagination (1-based)
+      - name: p
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 10
+        description: Number of results per page
+      - name: api_key
+        in: query
+        required: false
+        schema:
+          type: string
       responses:
         '200':
           description: Open access search results
@@ -77,22 +70,22 @@ paths:
       summary: Search Open Access Content (JATS Format)
       description: Returns open access publication metadata in JATS XML format
       tags:
-        - Open Access
+      - Open Access
       parameters:
-        - name: q
-          in: query
-          schema:
-            type: string
-        - name: s
-          in: query
-          schema:
-            type: integer
-            default: 1
-        - name: p
-          in: query
-          schema:
-            type: integer
-            default: 10
+      - name: q
+        in: query
+        schema:
+          type: string
+      - name: s
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - name: p
+        in: query
+        schema:
+          type: integer
+          default: 10
       responses:
         '200':
           description: JATS format results
@@ -101,27 +94,7 @@ paths:
               schema:
                 type: object
 components:
-  securitySchemes:
-    apiKey:
-      type: apiKey
-      in: header
-      name: X-ApiKey
   schemas:
-    OpenAccessResponse:
-      type: object
-      properties:
-        apiMessage:
-          type: string
-        query:
-          type: string
-        result:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResultSet'
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/OpenAccessRecord'
     ResultSet:
       type: object
       properties:
@@ -195,5 +168,23 @@ components:
           type: array
           items:
             type: string
-tags:
-  - name: Open Access
+    OpenAccessResponse:
+      type: object
+      properties:
+        apiMessage:
+          type: string
+        query:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResultSet'
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenAccessRecord'
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-ApiKey
