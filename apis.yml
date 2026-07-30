@@ -7,6 +7,19 @@ description: >-
   research tools. The APIs cover metadata search, full-text retrieval, open access content, and rich scholarly
   publication data.
 type: Index
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
 image: https://resource-cms.springernature.com/springer-cms/rest/v1/content/26613678/data/Springer_Nature_Logo_April21.png
@@ -21,72 +34,69 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/springer-nature/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: springer-nature:springer-nature-meta-api
-    name: Springer Nature Meta API
-    description: >-
-      The Meta API (versioned metadata) provides access to metadata for over 14 million online documents including
-      articles, books, and book chapters. Supports search by keyword, author, journal, ISBN, DOI, subject, and date
-      range. Returns rich metadata including abstracts, author affiliations, funding, and links.
-    humanURL: https://dev.springernature.com/docs/api-endpoints/meta-api/
-    baseURL: https://api.springernature.com/meta/v2
-    tags:
-      - Bibliometrics
-      - Metadata
-      - Research
-      - Search
-    properties:
-      - type: Documentation
-        url: https://dev.springernature.com/docs/api-endpoints/meta-api/
-      - type: GettingStarted
-        url: https://dev.springernature.com/docs/introduction/
-      - type: OpenAPI
-        url: openapi/springer-nature-meta-openapi.yml
-  - aid: springer-nature:springer-nature-openaccess-api
-    name: Springer Nature Open Access API
-    description: >-
-      Provides free access to open access research articles and book chapters published by Springer Nature. Returns
-      full-text content (where licensed), metadata, abstracts, and PDF links for open access publications.
-    humanURL: https://dev.springernature.com/docs/api-endpoints/open-access/
-    baseURL: https://api.springernature.com/openaccess
-    tags:
-      - Full Text
-      - Open Access
-      - Research Content
-    properties:
-      - type: Documentation
-        url: https://dev.springernature.com/docs/api-endpoints/open-access/
-      - type: OpenAPI
-        url: openapi/springer-nature-openaccess-openapi.yml
-  - aid: springer-nature:springer-nature-metadata-api
-    name: Springer Nature Metadata API
-    description: >-
-      The legacy Metadata API provides metadata retrieval for Springer publications. Returns article and book metadata
-      via DOI, journal name, ISSN, or keyword. Predecessor to the Meta API with slightly different response structure.
-    humanURL: https://dev.springernature.com/docs/api-endpoints/metadata-api/
-    baseURL: https://api.springernature.com
-    tags:
-      - Books
-      - Journals
-      - Metadata
-      - Publications
-    properties:
-      - type: Documentation
-        url: https://dev.springernature.com/docs/api-endpoints/metadata-api/
-  - aid: springer-nature:springer-nature-fulltext-api
-    name: Springer Nature Full Text API
-    description: >-
-      Premium full-text API providing content retrieval for licensed Springer Nature publications including text and
-      data mining (TDM) capabilities. Requires institutional or premium API access. Returns XML and HTML article
-      content.
-    humanURL: https://dev.springernature.com/docs/api-endpoints/fulltext-api/
-    baseURL: https://api.springernature.com
-    tags:
-      - Full Text
-      - Premium
-      - Text Mining
-    properties:
-      - type: Documentation
-        url: https://dev.springernature.com/docs/api-endpoints/fulltext-api/
+- aid: springer-nature:springer-nature-metadata-api
+  name: Springer Nature Metadata API
+  description: >-
+    The legacy Metadata API provides metadata retrieval for Springer publications. Returns article and
+    book metadata via DOI, journal name, ISSN, or keyword. Predecessor to the Meta API with slightly different
+    response structure.
+  humanURL: https://dev.springernature.com/docs/api-endpoints/metadata-api/
+  baseURL: https://api.springernature.com
+  tags:
+  - Books
+  - Journals
+  - Metadata
+  - Publications
+  properties:
+  - type: Documentation
+    url: https://dev.springernature.com/docs/api-endpoints/metadata-api/
+- aid: springer-nature:springer-nature-fulltext-api
+  name: Springer Nature Full Text API
+  description: >-
+    Premium full-text API providing content retrieval for licensed Springer Nature publications including
+    text and data mining (TDM) capabilities. Requires institutional or premium API access. Returns XML
+    and HTML article content.
+  humanURL: https://dev.springernature.com/docs/api-endpoints/fulltext-api/
+  baseURL: https://api.springernature.com
+  tags:
+  - Full Text
+  - Premium
+  - Text Mining
+  properties:
+  - type: Documentation
+    url: https://dev.springernature.com/docs/api-endpoints/fulltext-api/
+- aid: springer-nature:springer-nature-open-access-api
+  name: Springer Nature Open Access API
+  description: The Open Access API from Springer Nature — 2 operation(s) for open access.
+  humanURL: https://dev.springernature.com/docs/api-endpoints/meta-api/
+  baseURL: https://api.springernature.com/meta/v2
+  tags:
+  - Open Access
+  properties:
+  - type: OpenAPI
+    url: openapi/springer-nature-open-access-api-openapi.yml
+  - type: Documentation
+    url: https://dev.springernature.com/docs/api-endpoints/meta-api/
+  - type: GettingStarted
+    url: https://dev.springernature.com/docs/introduction/
+  - type: Documentation
+    url: https://dev.springernature.com/docs/api-endpoints/open-access/
+- aid: springer-nature:springer-nature-search-api
+  name: Springer Nature Search API
+  description: The Search API from Springer Nature — 2 operation(s) for search.
+  humanURL: https://dev.springernature.com/docs/api-endpoints/meta-api/
+  baseURL: https://api.springernature.com/meta/v2
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/springer-nature-search-api-openapi.yml
+  - type: Documentation
+    url: https://dev.springernature.com/docs/api-endpoints/meta-api/
+  - type: GettingStarted
+    url: https://dev.springernature.com/docs/introduction/
+  - type: Documentation
+    url: https://dev.springernature.com/docs/api-endpoints/open-access/
 common:
   - type: AgenticAccess
     url: agentic-access/springer-nature-agentic-access.yml
