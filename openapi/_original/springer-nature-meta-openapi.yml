@@ -1,0 +1,247 @@
+openapi: 3.0.3
+info:
+  title: Springer Nature Meta API
+  description: >-
+    The Springer Nature Meta API (versioned metadata) provides comprehensive
+    access to metadata for over 14 million scholarly documents including journal
+    articles, book chapters, and conference papers. Supports search by keyword,
+    author, journal, ISSN, ISBN, DOI, subject, and date range. Returns rich
+    metadata including abstracts, author affiliations, funding, subject classification,
+    and content links. Requires a free API key from dev.springernature.com.
+  version: '2'
+  contact:
+    name: Springer Nature Developer Support
+    url: https://dev.springernature.com/
+  license:
+    name: Springer Nature API Terms
+    url: https://dev.springernature.com/terms-conditions/
+servers:
+  - url: https://api.springernature.com/meta/v2
+    description: Springer Nature Meta API v2
+security:
+  - apiKey: []
+paths:
+  /json:
+    get:
+      operationId: searchMetadata
+      summary: Search Publication Metadata
+      description: >-
+        Searches and retrieves metadata for Springer Nature publications. Returns
+        paginated results with rich metadata including abstracts, authors, affiliations,
+        DOIs, URLs, journal info, and subject classifications.
+      tags:
+        - Search
+      parameters:
+        - name: q
+          in: query
+          required: false
+          schema:
+            type: string
+          description: >-
+            Free-text search query. Supports field qualifiers: title:, doi:,
+            author:, issn:, isbn:, journal:, subject:, onlinedatefrom:, onlinedateto:
+        - name: s
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+          description: Start record number for pagination (1-based)
+        - name: p
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 10
+          description: Number of results per page (max 100)
+        - name: api_key
+          in: query
+          required: false
+          schema:
+            type: string
+          description: API key (alternative to header-based auth)
+      responses:
+        '200':
+          description: Metadata search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetadataSearchResponse'
+        '401':
+          description: Unauthorized - invalid or missing API key
+        '429':
+          description: Rate limit exceeded
+  /pam:
+    get:
+      operationId: searchMetadataPam
+      summary: Search Metadata (PAM Format)
+      description: Returns publication metadata in PAM (Publishing Requirements for Industry Standard Metadata) format
+      tags:
+        - Search
+      parameters:
+        - name: q
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: s
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: p
+          in: query
+          schema:
+            type: integer
+            default: 10
+      responses:
+        '200':
+          description: PAM format metadata results
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-ApiKey
+  schemas:
+    MetadataSearchResponse:
+      type: object
+      properties:
+        apiMessage:
+          type: string
+          description: API version message
+        query:
+          type: string
+          description: Processed query string
+        apiKey:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResultSet'
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublicationRecord'
+        facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Facet'
+    ResultSet:
+      type: object
+      properties:
+        total:
+          type: string
+          description: Total number of matching records
+        start:
+          type: string
+        pageLength:
+          type: string
+        recordsDisplayed:
+          type: string
+    PublicationRecord:
+      type: object
+      properties:
+        identifier:
+          type: string
+          description: Record identifier
+        url:
+          type: array
+          items:
+            type: object
+            properties:
+              format:
+                type: string
+              platform:
+                type: string
+              value:
+                type: string
+        title:
+          type: string
+        creators:
+          type: array
+          items:
+            $ref: '#/components/schemas/Creator'
+        publicationName:
+          type: string
+          description: Journal or book series name
+        issn:
+          type: string
+        eissn:
+          type: string
+        isbn:
+          type: string
+        doi:
+          type: string
+          description: Digital Object Identifier
+        publisher:
+          type: string
+        publicationDate:
+          type: string
+          format: date
+        onlineDate:
+          type: string
+          format: date
+        printDate:
+          type: string
+          format: date
+        volume:
+          type: string
+        number:
+          type: string
+        startingPage:
+          type: string
+        endingPage:
+          type: string
+        copyright:
+          type: string
+        contentType:
+          type: string
+          description: Type of content (Article, Book, Chapter, etc.)
+        abstract:
+          type: string
+          description: Article or chapter abstract
+        subjects:
+          type: array
+          items:
+            type: string
+        keyword:
+          type: array
+          items:
+            type: string
+        openAccess:
+          type: boolean
+          description: Whether the content is open access
+    Creator:
+      type: object
+      properties:
+        creator:
+          type: string
+          description: Author name (Last, First format)
+        ORCID:
+          type: string
+          description: Author ORCID identifier
+    Facet:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Facet field name (subject, type, year, journal, etc.)
+        values:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+              count:
+                type: string
+tags:
+  - name: Search
