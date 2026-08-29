@@ -7,6 +7,18 @@ description: >-
   research tools. The APIs cover metadata search, full-text retrieval, open access content, and rich scholarly
   publication data.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: enterprise
   onboarding: self-serve
