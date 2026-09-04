@@ -21,18 +21,19 @@ deliveryModel:
   method: derived
 accessModel:
   pricing: enterprise
-  onboarding: self-serve
+  onboarding: unknown
   trial: false
   try_now: false
   public: false
-  label: Enterprise · Self-serve signup
-  confidence: high
+  label: Enterprise
+  confidence: medium
   source:
   - plans
   - authentication
-  generated: '2026-07-22'
+  - security
+  generated: '2026-09-03'
   method: derived
-position: Consumer
+position: Consuming
 access: 3rd-Party
 image: https://resource-cms.springernature.com/springer-cms/rest/v1/content/26613678/data/Springer_Nature_Logo_April21.png
 tags:
