@@ -1,8 +1,8 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Springer Nature Meta Open Access API
-  description: The Springer Nature Meta API (versioned metadata) provides comprehensive access to metadata for over 14 million scholarly documents including journal articles, book chapters, and conference papers. Supports search by keyword, author, journal, ISSN, ISBN, DOI, subject, and date range. Returns rich metadata including abstracts, author affiliations, funding, subject classification, and content links. Requires a free API key from dev.springernature.com.
-  version: '2'
+  title: Springer Nature Open Access API
+  description: The Springer Nature Open Access API provides free access to open access research articles and book chapters published by Springer Nature. It enables retrieval of metadata and full-text content for open access publications across all disciplines. Requires a free API key from dev.springernature.com.
+  version: '1'
   contact:
     name: Springer Nature Developer Support
     url: https://dev.springernature.com/
@@ -10,8 +10,8 @@ info:
     name: Springer Nature API Terms
     url: https://dev.springernature.com/terms-conditions/
 servers:
-- url: https://api.springernature.com/meta/v2
-  description: Springer Nature Meta API v2
+- url: https://api.springernature.com/openaccess
+  description: Springer Nature Open Access API
 security:
 - apiKey: []
 tags:
@@ -95,17 +95,6 @@ paths:
                 type: object
 components:
   schemas:
-    ResultSet:
-      type: object
-      properties:
-        total:
-          type: string
-        start:
-          type: string
-        pageLength:
-          type: string
-        recordsDisplayed:
-          type: string
     OpenAccessRecord:
       type: object
       properties:
@@ -168,6 +157,17 @@ components:
           type: array
           items:
             type: string
+    ResultSet:
+      type: object
+      properties:
+        total:
+          type: string
+        start:
+          type: string
+        pageLength:
+          type: string
+        recordsDisplayed:
+          type: string
     OpenAccessResponse:
       type: object
       properties:

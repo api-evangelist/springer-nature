@@ -1,0 +1,25 @@
+# Front Door AI Index — springer-nature — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: springer-nature
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.springernature.com
+  final_host: www.springernature.com
+  ownership: own
+  owner: springer-nature
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 8
+  host_score: 8
+  density: 5.2
+  words: 1537
+  tiers:
+    agentic: 0
+    core: 8
+    model: 0
+  ambiguous: 0
+  top_terms:
+    AI: 8
