@@ -106,56 +106,6 @@ components:
         ORCID:
           type: string
           description: Author ORCID identifier
-    ResultSet:
-      type: object
-      properties:
-        total:
-          type: string
-          description: Total number of matching records
-        start:
-          type: string
-        pageLength:
-          type: string
-        recordsDisplayed:
-          type: string
-    Facet:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Facet field name (subject, type, year, journal, etc.)
-        values:
-          type: array
-          items:
-            type: object
-            properties:
-              value:
-                type: string
-              count:
-                type: string
-    MetadataSearchResponse:
-      type: object
-      properties:
-        apiMessage:
-          type: string
-          description: API version message
-        query:
-          type: string
-          description: Processed query string
-        apiKey:
-          type: string
-        result:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResultSet'
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/PublicationRecord'
-        facets:
-          type: array
-          items:
-            $ref: '#/components/schemas/Facet'
     PublicationRecord:
       type: object
       properties:
@@ -229,6 +179,56 @@ components:
         openAccess:
           type: boolean
           description: Whether the content is open access
+    MetadataSearchResponse:
+      type: object
+      properties:
+        apiMessage:
+          type: string
+          description: API version message
+        query:
+          type: string
+          description: Processed query string
+        apiKey:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResultSet'
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublicationRecord'
+        facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Facet'
+    Facet:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Facet field name (subject, type, year, journal, etc.)
+        values:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+              count:
+                type: string
+    ResultSet:
+      type: object
+      properties:
+        total:
+          type: string
+          description: Total number of matching records
+        start:
+          type: string
+        pageLength:
+          type: string
+        recordsDisplayed:
+          type: string
   securitySchemes:
     apiKey:
       type: apiKey

@@ -95,6 +95,32 @@ paths:
                 type: object
 components:
   schemas:
+    ResultSet:
+      type: object
+      properties:
+        total:
+          type: string
+        start:
+          type: string
+        pageLength:
+          type: string
+        recordsDisplayed:
+          type: string
+    OpenAccessResponse:
+      type: object
+      properties:
+        apiMessage:
+          type: string
+        query:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResultSet'
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenAccessRecord'
     OpenAccessRecord:
       type: object
       properties:
@@ -157,32 +183,6 @@ components:
           type: array
           items:
             type: string
-    ResultSet:
-      type: object
-      properties:
-        total:
-          type: string
-        start:
-          type: string
-        pageLength:
-          type: string
-        recordsDisplayed:
-          type: string
-    OpenAccessResponse:
-      type: object
-      properties:
-        apiMessage:
-          type: string
-        query:
-          type: string
-        result:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResultSet'
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/OpenAccessRecord'
   securitySchemes:
     apiKey:
       type: apiKey

@@ -37,11 +37,19 @@ position: Consuming
 access: 3rd-Party
 image: https://resource-cms.springernature.com/springer-cms/rest/v1/content/26613678/data/Springer_Nature_Logo_April21.png
 tags:
+  - Scholarly Publishing
+  - Open Access
+  - Research
+  - Scholarly Content
+  - Publishing
+tags_raw:
   - Academic Publishing
   - Open Access
   - Research
   - Scholarly Content
   - Scientific Publishing
+  - Publishing
+  - Scholarly Publishing
 created: '2025-02-06'
 modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/springer-nature/refs/heads/main/apis.yml
