@@ -97,15 +97,29 @@ paths:
                 type: object
 components:
   schemas:
-    Creator:
+    MetadataSearchResponse:
       type: object
       properties:
-        creator:
+        apiMessage:
           type: string
-          description: Author name (Last, First format)
-        ORCID:
+          description: API version message
+        query:
           type: string
-          description: Author ORCID identifier
+          description: Processed query string
+        apiKey:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResultSet'
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublicationRecord'
+        facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Facet'
     PublicationRecord:
       type: object
       properties:
@@ -179,29 +193,6 @@ components:
         openAccess:
           type: boolean
           description: Whether the content is open access
-    MetadataSearchResponse:
-      type: object
-      properties:
-        apiMessage:
-          type: string
-          description: API version message
-        query:
-          type: string
-          description: Processed query string
-        apiKey:
-          type: string
-        result:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResultSet'
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/PublicationRecord'
-        facets:
-          type: array
-          items:
-            $ref: '#/components/schemas/Facet'
     Facet:
       type: object
       properties:
@@ -217,6 +208,15 @@ components:
                 type: string
               count:
                 type: string
+    Creator:
+      type: object
+      properties:
+        creator:
+          type: string
+          description: Author name (Last, First format)
+        ORCID:
+          type: string
+          description: Author ORCID identifier
     ResultSet:
       type: object
       properties:
