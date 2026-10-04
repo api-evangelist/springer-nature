@@ -193,6 +193,27 @@ components:
         openAccess:
           type: boolean
           description: Whether the content is open access
+    ResultSet:
+      type: object
+      properties:
+        total:
+          type: string
+          description: Total number of matching records
+        start:
+          type: string
+        pageLength:
+          type: string
+        recordsDisplayed:
+          type: string
+    Creator:
+      type: object
+      properties:
+        creator:
+          type: string
+          description: Author name (Last, First format)
+        ORCID:
+          type: string
+          description: Author ORCID identifier
     Facet:
       type: object
       properties:
@@ -208,27 +229,6 @@ components:
                 type: string
               count:
                 type: string
-    Creator:
-      type: object
-      properties:
-        creator:
-          type: string
-          description: Author name (Last, First format)
-        ORCID:
-          type: string
-          description: Author ORCID identifier
-    ResultSet:
-      type: object
-      properties:
-        total:
-          type: string
-          description: Total number of matching records
-        start:
-          type: string
-        pageLength:
-          type: string
-        recordsDisplayed:
-          type: string
   securitySchemes:
     apiKey:
       type: apiKey
