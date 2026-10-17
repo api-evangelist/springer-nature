@@ -97,29 +97,30 @@ paths:
                 type: object
 components:
   schemas:
-    MetadataSearchResponse:
+    Creator:
       type: object
       properties:
-        apiMessage:
+        creator:
           type: string
-          description: API version message
-        query:
+          description: Author name (Last, First format)
+        ORCID:
           type: string
-          description: Processed query string
-        apiKey:
+          description: Author ORCID identifier
+    Facet:
+      type: object
+      properties:
+        name:
           type: string
-        result:
+          description: Facet field name (subject, type, year, journal, etc.)
+        values:
           type: array
           items:
-            $ref: '#/components/schemas/ResultSet'
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/PublicationRecord'
-        facets:
-          type: array
-          items:
-            $ref: '#/components/schemas/Facet'
+            type: object
+            properties:
+              value:
+                type: string
+              count:
+                type: string
     PublicationRecord:
       type: object
       properties:
@@ -193,6 +194,29 @@ components:
         openAccess:
           type: boolean
           description: Whether the content is open access
+    MetadataSearchResponse:
+      type: object
+      properties:
+        apiMessage:
+          type: string
+          description: API version message
+        query:
+          type: string
+          description: Processed query string
+        apiKey:
+          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResultSet'
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublicationRecord'
+        facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Facet'
     ResultSet:
       type: object
       properties:
@@ -205,30 +229,6 @@ components:
           type: string
         recordsDisplayed:
           type: string
-    Creator:
-      type: object
-      properties:
-        creator:
-          type: string
-          description: Author name (Last, First format)
-        ORCID:
-          type: string
-          description: Author ORCID identifier
-    Facet:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Facet field name (subject, type, year, journal, etc.)
-        values:
-          type: array
-          items:
-            type: object
-            properties:
-              value:
-                type: string
-              count:
-                type: string
   securitySchemes:
     apiKey:
       type: apiKey

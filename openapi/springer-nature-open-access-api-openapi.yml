@@ -95,17 +95,21 @@ paths:
                 type: object
 components:
   schemas:
-    ResultSet:
+    OpenAccessResponse:
       type: object
       properties:
-        total:
+        apiMessage:
           type: string
-        start:
+        query:
           type: string
-        pageLength:
-          type: string
-        recordsDisplayed:
-          type: string
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResultSet'
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenAccessRecord'
     OpenAccessRecord:
       type: object
       properties:
@@ -168,21 +172,17 @@ components:
           type: array
           items:
             type: string
-    OpenAccessResponse:
+    ResultSet:
       type: object
       properties:
-        apiMessage:
+        total:
           type: string
-        query:
+        start:
           type: string
-        result:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResultSet'
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/OpenAccessRecord'
+        pageLength:
+          type: string
+        recordsDisplayed:
+          type: string
   securitySchemes:
     apiKey:
       type: apiKey
