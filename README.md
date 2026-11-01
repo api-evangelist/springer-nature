@@ -1,4 +1,4 @@
-# Springer Nature (springer-nature)
+# Springer Nature
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,128 +66,163 @@
 
 Springer Nature is a globally recognized leader in scientific, technical, and medical publishing, providing access to a wide array of scholarly and professional content. Their developer APIs empower developers to integrate high-quality research metadata, open access full-text content, and text mining capabilities into applications, platforms, and research tools. The APIs cover metadata search, full-text retrieval, open access content, and rich scholarly publication data.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/springer-nature/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/springer-nature/refs/heads/main/apis.yml)
+**Areas:** Scholarly Publishing · Open Access · Research · Scholarly Content · Publishing
 
-## Scope
+## Springer Nature on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Springer Nature is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/springer-nature/](https://apis.io/providers/springer-nature/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (4)
 
-- Academic Publishing
-- Open Access
-- Research
-- Scholarly Content
-- Scientific Publishing
+- [Springer Nature Metadata API](https://apis.io/apis/springer-nature/springer-nature-metadata-api/) — The legacy Metadata API provides metadata retrieval for Springer publications. Returns article and book metadata via DOI, journal name, ISSN, or keyword.…
+- [Springer Nature Full Text API](https://apis.io/apis/springer-nature/springer-nature-fulltext-api/) — Premium full-text API providing content retrieval for licensed Springer Nature publications including text and data mining (TDM) capabilities. Requires…
+- [Springer Nature Open Access API](https://apis.io/apis/springer-nature/springer-nature-open-access-api/) — The Open Access API from Springer Nature — 2 operation(s) for open access.
+- [Springer Nature Search API](https://apis.io/apis/springer-nature/springer-nature-search-api/) — The Search API from Springer Nature — 2 operation(s) for search.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-02-06
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### MCP servers (1)
 
-### Springer Nature Meta API
+Model Context Protocol servers that expose the API to agents.
 
-The Meta API (versioned metadata) provides access to metadata for over 14 million online documents including articles, books, and book chapters. Supports search by keyword, author, journal, ISBN, DOI, subject, and date range. Returns rich metadata including abstracts, author affiliations, funding, and links.
+- [MCP Server](https://apis.io/servers/springer-nature/mcp-server/)
 
-- **Human URL:** [https://dev.springernature.com/docs/api-endpoints/meta-api/](https://dev.springernature.com/docs/api-endpoints/meta-api/)
-- **Base URL:** `https://api.springernature.com/meta/v2`
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Bibliometrics
-- Metadata
-- Research
-- Search
+- [Springer Nature Agentic Access](https://apis.io/agentic-access/springer-nature/springer-nature-agentic-access/)
 
-#### Properties
+#### JSON Schema (1)
 
-- [Documentation](https://dev.springernature.com/docs/api-endpoints/meta-api/)
-- [Getting Started](https://dev.springernature.com/docs/introduction/)
-- [OpenAPI](openapi/springer-nature-meta-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/springer-nature-meta.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/springer-nature-meta.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+The data models the API reads and writes.
 
-### Springer Nature Open Access API
+- [Springer Nature Publication Record](https://apis.io/schemas/springer-nature/springer-nature-publication/)
 
-Provides free access to open access research articles and book chapters published by Springer Nature. Returns full-text content (where licensed), metadata, abstracts, and PDF links for open access publications.
+#### JSON Structure (1)
 
-- **Human URL:** [https://dev.springernature.com/docs/api-endpoints/open-access/](https://dev.springernature.com/docs/api-endpoints/open-access/)
-- **Base URL:** `https://api.springernature.com/openaccess`
+Data models expressed in JSON Structure.
 
-#### Tags
+- [Springer Nature Publication Structure](https://apis.io/json-structure/springer-nature/springer-nature-publication-structure/)
 
-- Full Text
-- Open Access
-- Research Content
+#### JSON-LD (1)
 
-#### Properties
+Linked-data contexts for the provider's vocabulary.
 
-- [Documentation](https://dev.springernature.com/docs/api-endpoints/open-access/)
-- [OpenAPI](openapi/springer-nature-openaccess-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/springer-nature-openaccess.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/springer-nature-openaccess.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Springer Nature Context](https://apis.io/jsonld/springer-nature/springer-nature-context/)
 
-### Springer Nature Metadata API
+#### Vocabulary (1)
 
-The legacy Metadata API provides metadata retrieval for Springer publications. Returns article and book metadata via DOI, journal name, ISSN, or keyword. Predecessor to the Meta API with slightly different response structure.
+The provider's domain terms, defined.
 
-- **Human URL:** [https://dev.springernature.com/docs/api-endpoints/metadata-api/](https://dev.springernature.com/docs/api-endpoints/metadata-api/)
-- **Base URL:** `https://api.springernature.com`
+- [Springer Nature Vocabulary](https://apis.io/vocabularies/springer-nature/springer-nature-vocabulary/)
 
-#### Tags
+#### Examples (1)
 
-- Books
-- Journals
-- Metadata
-- Publications
+Example requests and responses.
 
-#### Properties
+- [Springer Nature Search Publications Example](https://apis.io/examples/springer-nature/springer-nature-search-publications-example/)
 
-- [Documentation](https://dev.springernature.com/docs/api-endpoints/metadata-api/)
-- [Postman Collection](collections/springer-nature-meta.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/springer-nature-meta.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/springer-nature-openaccess.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/springer-nature-openaccess.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Collections (4)
 
-### Springer Nature Full Text API
+Postman and Open Collection request collections.
 
-Premium full-text API providing content retrieval for licensed Springer Nature publications including text and data mining (TDM) capabilities. Requires institutional or premium API access. Returns XML and HTML article content.
+- [Springer Nature Meta API](https://apis.io/collections/springer-nature/open-springer-nature-meta/)
+- [Springer Nature Meta Open Access API](https://apis.io/collections/springer-nature/open-springer-nature-open-access-api/)
+- [Springer Nature Open Access API](https://apis.io/collections/springer-nature/open-springer-nature-openaccess/)
+- [Springer Nature Meta Open Access Search API](https://apis.io/collections/springer-nature/open-springer-nature-search-api/)
 
-- **Human URL:** [https://dev.springernature.com/docs/api-endpoints/fulltext-api/](https://dev.springernature.com/docs/api-endpoints/fulltext-api/)
-- **Base URL:** `https://api.springernature.com`
+#### Governance rules (2)
 
-#### Tags
+Spectral rulesets for the provider's contracts.
 
-- Full Text
-- Premium
-- Text Mining
+- [Springer Nature — jsonschema rules](https://apis.io/rules/springer-nature/springer-nature-jsonschema-spectral-rules/)
+- [Springer Nature API Rules](https://apis.io/rules/springer-nature/springer-nature-rules/)
 
-#### Properties
+#### Security (2)
 
-- [Documentation](https://dev.springernature.com/docs/api-endpoints/fulltext-api/)
-- [Postman Collection](collections/springer-nature-meta.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/springer-nature-meta.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/springer-nature-openaccess.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/springer-nature-openaccess.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-## Common Properties
+- [Springer Nature Authentication](https://apis.io/security/springer-nature/springer-nature-authentication/)
+- [Springer Nature Domain Security](https://apis.io/security/springer-nature/springer-nature-domain-security/)
 
-- [LinkedIn](https://www.linkedin.com/company/springernature)
-- [Portal](https://dev.springernature.com/)
-- [Sign Up](https://dev.springernature.com/signup)
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Springer Nature Plans Pricing](https://apis.io/plans/springer-nature/springer-nature-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Springer Nature Rate Limits](https://apis.io/rate-limits/springer-nature/springer-nature-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Springer Nature Finops](https://apis.io/finops/springer-nature/springer-nature-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.springernature.com/)
-- [A P I  Playground](https://dev.springernature.com/docs/live-documentation/)
-- [Rate Limits](https://dev.springernature.com/docs/rate-limit-details/rate-limits/)
-- [Terms and  Conditions](https://dev.springernature.com/terms-conditions/)
-- [GitHub Organization](https://github.com/springernature)
 - [Blog](https://www.springernature.com/gp/researchers/the-source)
-- [M C P Server](https://github.com/springernature/holmes-mcp-integrations)
+- [GitHub](https://github.com/springernature)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 36.3** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 65.0 |
+| Contract quality | 58.6 |
+| Contract governance | 13.6 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 45.2 |
+| Access clarity | 18.4 |
+
+**Agent readiness 26.5** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/springer-nature/](https://apis.io/providers/springer-nature/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Springer Nature: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/springer-nature/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
